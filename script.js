@@ -21,7 +21,7 @@ form.addEventListener('submit',function (e) {
         const output = (weight/((height/100)*(height/100))).toFixed(2);
         res.appendChild(document.createTextNode(`=>${output}`));
         const conc = document.querySelector(".con")
-        conc.textContent="Conclusion ";
+        conc.textContent="";
         if (output<18.6){
             conc.appendChild(document.createTextNode("Kuch khale bkl patlu"))
         }
