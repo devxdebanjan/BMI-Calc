@@ -3,7 +3,7 @@ body{
     font-weight: 600;
 }
 .layout {
-    /* background-color: blue; */
+    background-color: rgb(216, 216, 224);
     border: 2px solid;
     border-radius: 50px;
     max-width: 500px;
