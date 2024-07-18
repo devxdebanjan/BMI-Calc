@@ -1,17 +1,23 @@
 const form= document.querySelector("form")
 
-const selector = document.querySelector("#heightselect")
-selector.addEventListener('change',(e)=>{
-    console.log(e.target.value);
+const hunits = document.querySelector("#hunits")
+hunits.addEventListener('change',(e)=>{
+    const height = document.querySelector("#height");
+    height.placeholder=`in ${e.target.value}`
+})
+
+const wunits = document.querySelector("#wunits")
+wunits.addEventListener('change',(e)=>{
+    const weight = document.querySelector("#weight");
+    weight.placeholder=`in ${e.target.value}`
 })
 
 
 form.addEventListener('submit',function (e) {
     e.preventDefault();
-    const height = parseFloat(document.querySelector("#height").value)
-    const weight = parseFloat(document.querySelector("#weight").value)
+    let height = parseFloat(document.querySelector("#height").value)
+    let weight = parseFloat(document.querySelector("#weight").value)
     const res=document.querySelector(".bmi")
-    
 
     if(height==''||height<0||isNaN(height))
     {
@@ -22,6 +28,15 @@ form.addEventListener('submit',function (e) {
         res.textContent="Enter a valid weight";
     }
     else{
+        if(hunits.value=='mt'){
+            height=height*100;
+        }
+        else {if (hunits.value=='ft'){
+            height=height*30.48;
+        }}
+        if(wunits.value=='pounds'){
+            weight=weight*0.4536;
+        }
         res.textContent="BMI output ";
         const output = (weight/((height/100)*(height/100))).toFixed(2);
         res.appendChild(document.createTextNode(`=>${output}`));
