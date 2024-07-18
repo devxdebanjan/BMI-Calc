@@ -1,5 +1,10 @@
 const form= document.querySelector("form")
 
+const selector = document.querySelector("#heightselect")
+selector.addEventListener('change',(e)=>{
+    console.log(e.target.value);
+})
+
 
 form.addEventListener('submit',function (e) {
     e.preventDefault();
@@ -23,13 +28,13 @@ form.addEventListener('submit',function (e) {
         const conc = document.querySelector(".con")
         conc.textContent="";
         if (output<18.6){
-            conc.appendChild(document.createTextNode("Kuch khale bkl patlu"))
+            conc.appendChild(document.createTextNode("Underweight"))
         }
         else if(output<24.9){
-            conc.appendChild(document.createTextNode("Wow you kinda sexy bro"))
+            conc.appendChild(document.createTextNode("Healthy"))
         }
         else{
-            conc.appendChild(document.createTextNode("Get on the treadmill FATSO!"))
+            conc.appendChild(document.createTextNode("Overweight"))
         }
     }
 
